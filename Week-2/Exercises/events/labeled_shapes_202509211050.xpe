@@ -1,0 +1,12 @@
+#Expyriment 1.0.0 (Python 3.13.7), .xpe-file, coding: cp1251
+#date: Sun Sep 21 2025 10:50:06
+#sha1: c8edee
+#modules: 
+#display: size=(800, 600), window_mode=True, opengl=2
+#os: uname_result(system='Windows', node='LAPTOP-Q978ER53', release='10', version='10.0.19045', machine='AMD64')
+Time,Type,Event,Value,Detail,Detail2
+508,stderr,received,'Traceback (most recent call last):'
+509,stderr,received,'  File "c:\\Users\\user\\Documents\\prog101\\Assignments\\Week-2\\Exercises\\labeled_shapes.py", line 12, in <module>\n    triangle.position = triangle_position\n    ^^^^^^^^^^^^^^^^^'
+509,stderr,received,'  File "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\expyriment\\stimuli\\_visual.py", line 286, in position\n    self.reposition(value)\n    ~~~~~~~~~~~~~~~^^^^^^^'
+510,stderr,received,'  File "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\expyriment\\stimuli\\_visual.py", line 575, in reposition\n    return self.move((new_position[0] - self.position[0],\n                      ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~'
+510,stderr,received,"TypeError: unsupported operand type(s) for -: 'int' and 'tuple'"

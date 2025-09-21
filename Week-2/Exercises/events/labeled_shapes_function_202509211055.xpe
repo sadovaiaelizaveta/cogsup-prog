@@ -1,0 +1,13 @@
+#Expyriment 1.0.0 (Python 3.13.7), .xpe-file, coding: cp1251
+#date: Sun Sep 21 2025 10:55:44
+#sha1: 8414de
+#modules: 
+#display: size=(800, 600), window_mode=True, opengl=2
+#os: uname_result(system='Windows', node='LAPTOP-Q978ER53', release='10', version='10.0.19045', machine='AMD64')
+Time,Type,Event,Value,Detail,Detail2
+521,stderr,received,'Traceback (most recent call last):'
+522,stderr,received,'  File "c:\\Users\\user\\Documents\\prog101\\Assignments\\Week-2\\Exercises\\labeled_shapes_function.py", line 16, in <module>\n    triangle = create_polygon(3, 50, (200, 0, 200), triangle_position)'
+523,stderr,received,'  File "c:\\Users\\user\\Documents\\prog101\\Assignments\\Week-2\\Exercises\\labeled_shapes_function.py", line 8, in create_polygon\n    polygon.position = position\n    ^^^^^^^^^^^^^^^^'
+523,stderr,received,'  File "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\expyriment\\stimuli\\_visual.py", line 286, in position\n    self.reposition(value)\n    ~~~~~~~~~~~~~~~^^^^^^^'
+523,stderr,received,'  File "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\expyriment\\stimuli\\_visual.py", line 575, in reposition\n    return self.move((new_position[0] - self.position[0],\n                      ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~'
+524,stderr,received,"TypeError: unsupported operand type(s) for -: 'int' and 'tuple'"
