@@ -41,7 +41,7 @@ def make_circles(radius, spacing, add_color=False):
         c.position = (x, 0)
         if add_color:
             add_tags(c, tag_colors[i % len(tag_colors)])
-        c.preload()  # must preload after plotting tags
+        c.preload()
         circles.append(c)
     return circles
 
