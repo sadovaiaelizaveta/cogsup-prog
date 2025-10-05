@@ -1,10 +1,6 @@
-#!/usr/bin/env python3
-# ternus.py -- compact Ternus-display demo for Expyriment
-
 from expyriment import design, control, stimuli
 from expyriment.misc.constants import K_SPACE
 
-# ---------- Global settings ----------
 EXP_NAME = "Ternus demo"
 bg_color = (0, 0, 0)
 fg_color = (255, 255, 255)
@@ -14,7 +10,6 @@ exp = design.Experiment(EXP_NAME)
 control.initialize(exp)
 
 
-# ---------- Helpers ----------
 def present_for(obj, frames):
     """Present stimulus or list-of-stimuli for N frames (≈16.67 ms/frame)."""
     ms = int(round(frames * 1000.0 / 60.0))
@@ -33,7 +28,6 @@ def add_tags(big_circle, color):
     h = big_circle.surface.get_height()
     tag_r = max(4, int(min(w, h) * 0.14))
     tag = stimuli.Circle(tag_r, colour=color)
-    # position relative to the big circle surface (top-left origin)
     pos = (int(w * 0.62), int(h * 0.28))
     big_circle.plot(tag, position=pos)
     return big_circle
@@ -63,42 +57,33 @@ def run_trial(radius=40, isi_frames=1, add_color=False,
     """
     spacing = int(radius * spacing_scale)
     frame1 = make_circles(radius, spacing, add_color)
-    # frame2: same but shifted one element to the right
     frame2 = make_circles(radius, spacing, add_color)
     for c in frame2:
         c.move((spacing, 0))
 
     blank = stimuli.BlankScreen(colour=bg_color)
     blank.preload()
-
-    # Present first frame, ISI, then second frame
+                  
     present_for(frame1, frame_duration_frames)
     if isi_frames > 0:
         present_for(blank, isi_frames)
-    # ISI == 0 -> immediate frame2 presentation (no blank)
     present_for(frame2, frame_duration_frames)
 
 
-# ---------- Run sequence ----------
 control.start(skip_ready_screen=True)
 exp.screen.clear()
 stimuli.TextLine("Ternus demo\nPress SPACE to start").present()
 exp.keyboard.wait(K_SPACE)
 
-# (1) Element motion without color tags (low ISI)
 run_trial(radius=40, isi_frames=1, add_color=False, frame_duration_frames=4)
 
-# small pause between conditions
 exp.clock.wait(300)
 
-# (2) Group motion without color tags (high ISI)
 run_trial(radius=40, isi_frames=10, add_color=False, frame_duration_frames=4)
 exp.clock.wait(300)
 
-# (3) Element motion with color tags (high ISI)
 run_trial(radius=40, isi_frames=10, add_color=True, frame_duration_frames=4)
 
-# End
 stimuli.TextLine("End of demo. Press SPACE to quit.").present()
 exp.keyboard.wait(K_SPACE)
 control.end()
