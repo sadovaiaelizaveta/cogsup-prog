@@ -14,7 +14,6 @@ def present_for(obj, frames):
     """Present stimulus or list-of-stimuli for N frames (≈16.67 ms/frame)."""
     ms = int(round(frames * 1000.0 / 60.0))
     if isinstance(obj, (list, tuple)):
-        # present all on one screen; clear only for the first
         for i, s in enumerate(obj):
             s.present(clear=(i == 0))
     else:
